@@ -20,30 +20,34 @@
         {
             if(this.phrase[i]==" ")
             {
-                phraseOut +=`<li class="space hide ${phrase[i]}" id="${i}">${this.phrase[i]}</li>`;
+                phraseOut +=`<li class="space  ${this.phrase[i]}" id="${i}">${this.phrase[i]}</li>`;
 
             }
             else{
-                phraseOut+=`<li class="letter hide ${phrase[i]}" id="${i}">${this.phrase[i]}</li>`
+                phraseOut+=`<li class="letter hide ${this.phrase[i]}" id="${i}">${this.phrase[i]}</li>`
             }
            
         }
         phraseUL.innerHTML=phraseOut;
-        console.log(phraseUL.innerHTML);
-
-        
+        console.log(phraseUL.innerHTML);        
      }
 
      //Check if letter selected by the user is a part of the hrase
-     checkLetter()
+     checkLetter(letter)
      {
-        return false;
-     }
-
-     showMatchedLetter()
-     {
+         return this.phrase.includes(letter);
 
         
+     }
+
+     showMatchedLetter(letter)
+     {
+
+        let matches=document.getElementsByClassName(letter);
+        for(let i=0; i< matches.length; i++)
+        {
+            matches[i].className =`letter show ${letter}`;
+        }
      }
 
 

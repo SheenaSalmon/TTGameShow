@@ -52,4 +52,67 @@
          return(this.phrases[num]);
      }
 
+     handleInteraction(e)
+     {
+        
+        e.target.disabled=true;
+        let letter=e.target.innerHTML
+        if(this.ActivePhrase.checkLetter(letter)==true)
+        {
+            e.target.className = e.target.className +" chosen";
+            this.ActivePhrase.showMatchedLetter(letter);
+            this.checkForWin();
+
+        }
+        else{
+            e.target.className = e.target.className +" wrong";
+            this.removeLife();
+        }
+     }
+
+     removeLife()
+     {
+         let heartLife=document.querySelectorAll("#scoreboard ol li img");
+         heartLife[this.missed].setAttribute("src","images/lostHeart.png");
+         this.missed++;
+         if(this.missed>=5)
+         {
+            this.gameOver(false);
+         }
+     }
+
+     checkForWin()
+     {
+        let hiddenLetters=document.getElementsByClassName("hide");
+        if (hiddenLetters.length==0)
+        {
+           setTimeout(()=>this.gameOver(true),2000);
+            
+            //return true;
+        }
+        else
+        {
+            return false;
+        }
+     }
+
+     gameOver(win)
+     {
+        let overlay=document.getElementById("overlay");
+        let gameMessage=document.getElementById("game-over-message");
+        //gameMessage.innerText="Congratulations, You are the Winner";
+        overlay.style.display="";
+        if(win==true)
+        {
+            overlay.className="win";
+            gameMessage.innerText="Congratulations, You are the Winner";
+        }
+        else{
+            overlay.className="lose";
+            gameMessage.innerText="Sorry,  You ran out of lives.  Let's Play Again";
+        }
+     }
+
+
+
  }

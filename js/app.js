@@ -24,6 +24,7 @@ kwertyKeys.addEventListener("click",e=>
     if(e.target.tagName=="BUTTON")
     {
         console.log(e.target.innerHTML);
+        newGame.handleInteraction(e);
     }
 })
 
