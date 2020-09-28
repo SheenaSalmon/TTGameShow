@@ -111,8 +111,27 @@
             overlay.className="lose";
             gameMessage.innerText="Sorry,  You ran out of lives.  Let's Play Again";
         }
+        this.resetGame();
      }
 
+     resetGame()
+     {
+        let phraseUL= document.querySelector("#phrase ul");
+        phraseUL.innerHTML="";
+        let keys=document.getElementsByClassName("key");
+        for(let i=0; i<keys.length; i++)
+        {
+            keys[i].className="key";
+            keys[i].disabled=false;
+        }
+
+        let heartLife=document.querySelectorAll("#scoreboard ol li img");
+        for(let i=0; i<heartLife.length; i++)
+        {
+         heartLife[i].setAttribute("src","images/liveHeart.png");
+
+        }
+     }
 
 
  }

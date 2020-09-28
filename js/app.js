@@ -25,6 +25,7 @@ kwertyKeys.addEventListener("click",e=>
     {
         console.log(e.target.innerHTML);
         newGame.handleInteraction(e);
+        
     }
 })
 
