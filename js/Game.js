@@ -123,6 +123,7 @@
       */
      resetGame()
      {
+
         let phraseUL= document.querySelector("#phrase ul");
         phraseUL.innerHTML="";
         let keys=document.getElementsByClassName("key");
@@ -138,6 +139,7 @@
          heartLife[i].setAttribute("src","images/liveHeart.png");
 
         }
+        this.missed=0;
      }
 
 
