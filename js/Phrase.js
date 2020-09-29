@@ -29,7 +29,7 @@
            
         }
         phraseUL.innerHTML=phraseOut;
-        console.log(phraseUL.innerHTML);        
+        //console.log(phraseUL.innerHTML);        
      }
 
      //Check if letter selected by the user is a part of the hrase

@@ -25,7 +25,7 @@
         let overlay=document.getElementById("overlay");
         overlay.style.display="none";
         this.ActivePhrase=this.getRandomPhrase();
-        console.log(this.ActivePhrase);
+        //console.log(this.ActivePhrase);
         this.ActivePhrase.addPhraseToDisplay();
 
      }
@@ -38,7 +38,7 @@
         return this.phraseArray.map( phr=>
             {
                 let phrase=new Phrase(phr);
-                console.log(phrase);
+               // console.log(phrase);
                 return phrase;
             })
      }
@@ -56,7 +56,7 @@
      {
         
         e.target.disabled=true;
-        let letter=e.target.innerHTML
+        let letter=e.target.innerHTML;
         if(this.ActivePhrase.checkLetter(letter)==true)
         {
             e.target.className = e.target.className +" chosen";
@@ -96,6 +96,11 @@
         }
      }
 
+     /**
+      * 
+      * @param {boolean} win
+      * Dispalys Wether the user won the game, and then calls reserGame() 
+      */
      gameOver(win)
      {
         let overlay=document.getElementById("overlay");
@@ -113,7 +118,9 @@
         }
         this.resetGame();
      }
-
+     /**
+      * Method Resets the Game with hears, resets onscreen keyboard
+      */
      resetGame()
      {
         let phraseUL= document.querySelector("#phrase ul");
